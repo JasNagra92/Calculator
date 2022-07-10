@@ -5,6 +5,11 @@ let secondNum = 0;
 let operator = "";
 let total = "";
 
+const sum = (a, b) => a + b;
+const subtract = (a, b) => a - b;
+const multiply = (a, b) => a * b;
+const divide = (a, b) => a / b;
+
 let numPad = document.getElementById("numberpad");
 const operate = document.createElement("button");
 operate.textContent = "=";
@@ -30,11 +35,6 @@ operate.addEventListener("click", function () {
       break;
   }
 });
-
-const sum = (a, b) => a + b;
-const subtract = (a, b) => a - b;
-const multiply = (a, b) => a * b;
-const divide = (a, b) => a / b;
 
 for (i = 0; i < 10; i++) {
   let btn = document.createElement("button");
@@ -82,5 +82,3 @@ for (i = 0; i < operatorList.length; i++) {
     }
   });
 }
-
-
