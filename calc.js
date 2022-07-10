@@ -18,5 +18,22 @@ btn.addEventListener('click',function(){
 })
 let numPad = document.getElementById("numberpad");
 numPad.appendChild(btn)
-}
+};
+
+let operators = document.getElementById("operators")
+const sumBtn = document.createElement('button');
+sumBtn.textContent = "+";
+operators.appendChild(sumBtn);
+
+const multiplyBtn = document.createElement('button');
+multiplyBtn.textContent = "*";
+operators.appendChild(multiplyBtn);
+
+const divideBtn = document.createElement('button');
+divideBtn.textContent = "/";
+operators.appendChild(divideBtn);
+
+const subtractBtn = document.createElement('button');
+subtractBtn.textContent = "-";
+operators.appendChild(subtractBtn);
 
