@@ -11,11 +11,15 @@ const multiply = (a , b) => a * b;
 const divide = (a , b) => a / b;
 let btn = "";
 
+
 for (i = 0; i < 10; i ++){
+function addFirst(){
+    firstNumStr += btn.textContent
+}
 let btn = document.createElement('button');
 btn.classList.add("number");
 btn.textContent = i
-btn.addEventListener('click', () => firstNumStr += btn.textContent)
+btn.addEventListener('click', addFirst)
 let numPad = document.getElementById("numberpad");
 numPad.appendChild(btn)
 };
