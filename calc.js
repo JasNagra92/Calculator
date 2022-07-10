@@ -4,6 +4,9 @@ let secondNumStr = "";
 let secondNum = 0;
 let operator = "";
 let total = "";
+let display = document.querySelector("#display");
+
+
 
 const sum = (a, b) => a + b;
 const subtract = (a, b) => a - b;
@@ -20,18 +23,22 @@ operate.addEventListener("click", function () {
   switch (operator) {
     case "+":
       total = sum(firstNum, secondNum);
+      display.textContent = total;
       break;
 
     case "*":
       total = multiply(firstNum, secondNum);
+      display.textContent = total;
       break;
 
     case "/":
       total = divide(firstNum, secondNum);
+      display.textContent = total;
       break;
 
     case "-":
       total = subtract(firstNum, secondNum);
+      display.textContent = total;
       break;
   }
 });
@@ -42,6 +49,7 @@ for (i = 0; i < 10; i++) {
   btn.textContent = i;
   btn.onclick = function (e) {
     firstNumStr += e.target.textContent;
+    display.textContent = firstNumStr
   };
   numPad.appendChild(btn);
 }
@@ -73,11 +81,13 @@ for (i = 0; i < operatorList.length; i++) {
   operatorList[i].addEventListener("click", function (e) {
     firstNum = Number(firstNumStr);
     operator = e.target.textContent;
+    display.textContent = firstNumStr + operator;
 
     const numList = document.querySelectorAll(".number");
     for (i = 0; i < numList.length; i++) {
       numList[i].onclick = function (e) {
         secondNumStr += e.target.textContent;
+        display.textContent = firstNumStr + operator + secondNumStr
       };
     }
   });
