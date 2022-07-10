@@ -1,5 +1,7 @@
-let firstNum = "";
-let secondNum = "";
+let firstNumStr = "";
+let firstNum = 0;
+let secondNumStr = "";
+let secondNum = 0;
 let operator = "";
 let total = "";
 
@@ -11,11 +13,9 @@ let btn = "";
 
 for (i = 0; i < 10; i ++){
 let btn = document.createElement('button');
-btn.id = i;
+btn.classList.add("number");
 btn.textContent = i
-btn.addEventListener('click',function(){
-    firstNum += btn.textContent
-})
+btn.addEventListener('click', () => firstNumStr += btn.textContent)
 let numPad = document.getElementById("numberpad");
 numPad.appendChild(btn)
 };
@@ -37,3 +37,10 @@ const subtractBtn = document.createElement('button');
 subtractBtn.textContent = "-";
 operators.appendChild(subtractBtn);
 
+sumBtn.addEventListener('click', function(){
+    firstNum = Number(firstNumStr);
+    operator = "sum";
+    this.querySelectorAll(".number");
+    
+    this.addEventListener('click',() => secondNumStr += btn.textContent)
+})
