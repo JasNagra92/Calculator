@@ -10,7 +10,13 @@ const divide = (a , b) => a / b;
 let btn = "";
 
 for (i = 0; i < 10; i ++){
-let btn = document.createElement('button')
+let btn = document.createElement('button');
+btn.id = i;
+btn.textContent = i
+btn.addEventListener('click',function(){
+    firstNum += btn.textContent
+})
 let numPad = document.getElementById("numberpad");
 numPad.appendChild(btn)
 }
+
