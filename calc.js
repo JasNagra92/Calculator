@@ -9,22 +9,19 @@ const sum = (a , b) => a + b;
 const subtract = (a , b) => a - b;
 const multiply = (a , b) => a * b;
 const divide = (a , b) => a / b;
-let btn = "";
-
 
 for (i = 0; i < 10; i ++){
-function addFirst(){
-    firstNumStr += btn.textContent
-}
+
 let btn = document.createElement('button');
 btn.classList.add("number");
 btn.textContent = i
-btn.addEventListener('click', addFirst)
+btn.onclick = function(e){firstNumStr += e.target.textContent}
 let numPad = document.getElementById("numberpad");
 numPad.appendChild(btn)
 };
 
 let operators = document.getElementById("operators")
+
 const sumBtn = document.createElement('button');
 sumBtn.textContent = "+";
 operators.appendChild(sumBtn);
@@ -41,10 +38,12 @@ const subtractBtn = document.createElement('button');
 subtractBtn.textContent = "-";
 operators.appendChild(subtractBtn);
 
-sumBtn.addEventListener('click', function(){
+sumBtn.addEventListener("click", function (){
     firstNum = Number(firstNumStr);
     operator = "sum";
-    this.querySelectorAll(".number");
-    
-    this.addEventListener('click',() => secondNumStr += btn.textContent)
+    const numList = document.querySelectorAll('.number');
+    for (i = 0; i < numList.length; i++){
+        numList[i].onclick = function (e){
+            secondNumStr += e.target.textContent
+        }}
 })
