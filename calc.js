@@ -6,8 +6,6 @@ let operator = "";
 let total = "";
 let display = document.querySelector("#display");
 
-
-
 const sum = (a, b) => a + b;
 const subtract = (a, b) => a - b;
 const multiply = (a, b) => a * b;
@@ -49,7 +47,7 @@ for (i = 0; i < 10; i++) {
   btn.textContent = i;
   btn.onclick = function (e) {
     firstNumStr += e.target.textContent;
-    display.textContent = firstNumStr
+    display.textContent = firstNumStr;
   };
   numPad.appendChild(btn);
 }
@@ -79,16 +77,81 @@ operators.appendChild(subtractBtn);
 const operatorList = document.querySelectorAll(".operator");
 for (i = 0; i < operatorList.length; i++) {
   operatorList[i].addEventListener("click", function (e) {
-    firstNum = Number(firstNumStr);
-    operator = e.target.textContent;
-    display.textContent = firstNumStr + operator;
+    if (secondNumStr !== "") {
+      secondNum = Number(secondNumStr);
+      switch (operator) {
+        case "+":
+          total = sum(firstNum, secondNum);
+          operator = e.target.textContent;
+          display.textContent = total;
+          firstNum = total;
+          secondNumStr = "";
+          numList = document.querySelectorAll(".number");
+          for (i = 0; i < numList.length; i++) {
+            numList[i].onclick = function (e) {
+              secondNumStr += e.target.textContent;
+              display.textContent = secondNumStr;
+            };
+          }
+          break;
 
-    const numList = document.querySelectorAll(".number");
-    for (i = 0; i < numList.length; i++) {
-      numList[i].onclick = function (e) {
-        secondNumStr += e.target.textContent;
-        display.textContent = firstNumStr + operator + secondNumStr
-      };
+        case "*":
+          total = multiply(firstNum, secondNum);
+          operator = e.target.textContent;
+          display.textContent = total;
+          firstNum = total;
+          secondNumStr = "";
+          numList = document.querySelectorAll(".number");
+          for (i = 0; i < numList.length; i++) {
+            numList[i].onclick = function (e) {
+              secondNumStr += e.target.textContent;
+              display.textContent = secondNumStr;
+            };
+          }
+          break;
+
+        case "/":
+          total = divide(firstNum, secondNum);
+          operator = e.target.textContent;
+          display.textContent = total;
+          firstNum = total;
+          secondNumStr = "";
+          numList = document.querySelectorAll(".number");
+          for (i = 0; i < numList.length; i++) {
+            numList[i].onclick = function (e) {
+              secondNumStr += e.target.textContent;
+              display.textContent = secondNumStr;
+            };
+          }
+          break;
+
+        case "-":
+          total = subtract(firstNum, secondNum);
+          operator = e.target.textContent;
+          display.textContent = total;
+          firstNum = total;
+          secondNumStr = "";
+          numList = document.querySelectorAll(".number");
+          for (i = 0; i < numList.length; i++) {
+            numList[i].onclick = function (e) {
+              secondNumStr += e.target.textContent;
+              display.textContent = secondNumStr;
+            };
+          }
+          break;
+      }
+    } else {
+      firstNum = Number(firstNumStr);
+      operator = e.target.textContent;
+      display.textContent = firstNumStr + operator;
+
+      const numList = document.querySelectorAll(".number");
+      for (i = 0; i < numList.length; i++) {
+        numList[i].onclick = function (e) {
+          secondNumStr += e.target.textContent;
+          display.textContent = firstNumStr + operator + secondNumStr;
+        };
+      }
     }
   });
 }
