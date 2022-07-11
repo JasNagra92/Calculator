@@ -4,6 +4,17 @@ let secondNumStr = "";
 let secondNum = 0;
 let operator = "";
 let total = "";
+
+function reset() {
+  firstNumStr = "";
+  firstNum = 0;
+  secondNumStr = "";
+  secondNum = 0;
+  operator = "";
+  total = "";
+  display.textContent = 0;
+}
+
 let display = document.querySelector("#display");
 
 const sum = (a, b) => a + b;
@@ -18,6 +29,17 @@ numPad.appendChild(operate);
 
 operate.addEventListener("click", function () {
   secondNum = Number(secondNumStr);
+  if (secondNumStr == "0" && operator == "/") {
+    alert("universe implodes");
+    reset();
+    let numList = document.querySelectorAll(".number");
+    for (let i = 0; i < numList.length; i++) {
+      numList[i].onclick = function (e) {
+        firstNumStr += e.target.textContent;
+        display.textContent = firstNumStr;
+      };
+    }
+  }
   switch (operator) {
     case "+":
       total = sum(firstNum, secondNum);
@@ -90,7 +112,17 @@ const saveTime = function () {
 const operatorList = document.querySelectorAll(".operator");
 for (i = 0; i < operatorList.length; i++) {
   operatorList[i].addEventListener("click", function (e) {
-    if (secondNumStr !== "") {
+    if (secondNumStr == "0" && operator == "/") {
+      alert("universe implodes");
+      reset();
+      let numList = document.querySelectorAll(".number");
+      for (let i = 0; i < numList.length; i++) {
+        numList[i].onclick = function (e) {
+          firstNumStr += e.target.textContent;
+          display.textContent = firstNumStr;
+        };
+      }
+    } else if (secondNumStr !== "") {
       secondNum = Number(secondNumStr);
       switch (operator) {
         case "+":
