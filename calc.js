@@ -74,6 +74,19 @@ subtractBtn.textContent = "-";
 subtractBtn.classList.add("operator");
 operators.appendChild(subtractBtn);
 
+const saveTime = function () {
+  display.textContent = total;
+  firstNum = total;
+  secondNumStr = "";
+  numList = document.querySelectorAll(".number");
+  for (i = 0; i < numList.length; i++) {
+    numList[i].onclick = function (e) {
+      secondNumStr += e.target.textContent;
+      display.textContent = secondNumStr;
+    };
+  }
+};
+
 const operatorList = document.querySelectorAll(".operator");
 for (i = 0; i < operatorList.length; i++) {
   operatorList[i].addEventListener("click", function (e) {
@@ -83,61 +96,25 @@ for (i = 0; i < operatorList.length; i++) {
         case "+":
           total = sum(firstNum, secondNum);
           operator = e.target.textContent;
-          display.textContent = total;
-          firstNum = total;
-          secondNumStr = "";
-          numList = document.querySelectorAll(".number");
-          for (i = 0; i < numList.length; i++) {
-            numList[i].onclick = function (e) {
-              secondNumStr += e.target.textContent;
-              display.textContent = secondNumStr;
-            };
-          }
+          saveTime();
           break;
 
         case "*":
           total = multiply(firstNum, secondNum);
           operator = e.target.textContent;
-          display.textContent = total;
-          firstNum = total;
-          secondNumStr = "";
-          numList = document.querySelectorAll(".number");
-          for (i = 0; i < numList.length; i++) {
-            numList[i].onclick = function (e) {
-              secondNumStr += e.target.textContent;
-              display.textContent = secondNumStr;
-            };
-          }
+          saveTime();
           break;
 
         case "/":
           total = divide(firstNum, secondNum);
           operator = e.target.textContent;
-          display.textContent = total;
-          firstNum = total;
-          secondNumStr = "";
-          numList = document.querySelectorAll(".number");
-          for (i = 0; i < numList.length; i++) {
-            numList[i].onclick = function (e) {
-              secondNumStr += e.target.textContent;
-              display.textContent = secondNumStr;
-            };
-          }
+          saveTime();
           break;
 
         case "-":
           total = subtract(firstNum, secondNum);
           operator = e.target.textContent;
-          display.textContent = total;
-          firstNum = total;
-          secondNumStr = "";
-          numList = document.querySelectorAll(".number");
-          for (i = 0; i < numList.length; i++) {
-            numList[i].onclick = function (e) {
-              secondNumStr += e.target.textContent;
-              display.textContent = secondNumStr;
-            };
-          }
+          saveTime();
           break;
       }
     } else {
