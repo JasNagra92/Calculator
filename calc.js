@@ -16,16 +16,19 @@ function reset() {
 }
 
 let display = document.querySelector("#display");
+display.textContent = "0";
 
 const sum = (a, b) => a + b;
 const subtract = (a, b) => a - b;
 const multiply = (a, b) => a * b;
 const divide = (a, b) => a / b;
 
+let operators = document.getElementById("operators");
 let numPad = document.getElementById("numberpad");
 const operate = document.createElement("button");
 operate.textContent = "=";
-numPad.appendChild(operate);
+operate.classList.add("operator");
+operators.appendChild(operate);
 
 operate.addEventListener("click", function () {
   secondNum = Number(secondNumStr);
@@ -66,6 +69,7 @@ operate.addEventListener("click", function () {
 for (i = 0; i < 10; i++) {
   let btn = document.createElement("button");
   btn.classList.add("number");
+  btn.id = i
   btn.textContent = i;
   btn.onclick = function (e) {
     firstNumStr += e.target.textContent;
@@ -73,8 +77,6 @@ for (i = 0; i < 10; i++) {
   };
   numPad.appendChild(btn);
 }
-
-let operators = document.getElementById("operators");
 
 const sumBtn = document.createElement("button");
 sumBtn.textContent = "+";
