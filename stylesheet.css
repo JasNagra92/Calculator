@@ -1,3 +1,6 @@
+*{
+    box-sizing: border-box;
+}
 .calculator-body{
     display:flex;
     flex-wrap:wrap;
@@ -12,19 +15,20 @@ body{
 .number{
     width:50px;
     height:50px;
+    flex: auto;
+    border:1px solid black;
 }
 #numberpad{
     width:150px;
     height:150px;
     display:flex;
     flex-wrap: wrap;
-    justify-content: flex-end;
-    flex-direction:row
-    
+    flex-direction:row;
 }
 .operator{
-    width: 50px;
-    height:50px
+    width: 100px;
+    height:50px;
+    border:1px solid black;
 }
 #operators{
     width:100px;
@@ -37,4 +41,5 @@ body{
     height:50px;
     font-size: 30px;
     text-align: right;
+    border:1px solid black
 }

@@ -69,8 +69,8 @@ operate.addEventListener("click", function () {
 for (i = 0; i < 10; i++) {
   let btn = document.createElement("button");
   btn.classList.add("number");
-  btn.id = i
   btn.textContent = i;
+  btn.id = "a" + i
   btn.onclick = function (e) {
     firstNumStr += e.target.textContent;
     display.textContent = firstNumStr;
