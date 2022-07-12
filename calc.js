@@ -8,7 +8,7 @@ let display = document.querySelector("#display");
 display.textContent = "0";
 let test = "1str";
 
-const reset = function() {
+const reset = function () {
   firstNumStr = "";
   firstNum = 0;
   secondNumStr = "";
@@ -16,7 +16,8 @@ const reset = function() {
   operator = "";
   total = "";
   display.textContent = 0;
-}
+  test = "1str"
+};
 
 const sum = (a, b) => a + b;
 const subtract = (a, b) => a - b;
@@ -30,25 +31,26 @@ operate.textContent = "=";
 operate.classList.add("operator");
 operators.appendChild(operate);
 
-let clear = document.createElement('button');
+let clear = document.createElement("button");
 numPad.appendChild(clear);
-clear.classList.add('number');
+clear.classList.add("number");
 clear.textContent = "A/C";
+clear.addEventListener("click", reset)
 
 for (i = 0; i < 10; i++) {
   let btn = document.createElement("button");
   btn.classList.add("number");
   btn.textContent = i;
   btn.id = "a" + i;
-  btn.addEventListener("click", function(e){
-    if (test == "1str"){
+  btn.addEventListener("click", function (e) {
+    if (test == "1str") {
       firstNumStr += e.target.textContent;
       display.textContent = firstNumStr;
-    } else if (test == "2str"){
+    } else if (test == "2str") {
       secondNumStr += e.target.textContent;
       display.textContent = firstNumStr + operator + secondNumStr;
     }
-  })
+  });
   numPad.appendChild(btn);
 }
 
@@ -108,7 +110,7 @@ const saveTime = function () {
   secondNumStr = "";
   firstNumStr = total;
   test = "2str";
-}
+};
 
 const operatorList = document.querySelectorAll(".operator");
 for (i = 0; i < operatorList.length; i++) {
@@ -148,7 +150,7 @@ for (i = 0; i < operatorList.length; i++) {
       firstNum = Number(firstNumStr);
       operator = e.target.textContent;
       display.textContent = firstNumStr + operator;
-      test = "2str"
+      test = "2str";
     }
   });
 }
