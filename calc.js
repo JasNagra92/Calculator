@@ -4,8 +4,10 @@ let secondNumStr = "";
 let secondNum = 0;
 let operator = "";
 let total = "";
+let display = document.querySelector("#display");
+display.textContent = "0";
 
-function reset() {
+const reset = function() {
   firstNumStr = "";
   firstNum = 0;
   secondNumStr = "";
@@ -14,9 +16,6 @@ function reset() {
   total = "";
   display.textContent = 0;
 }
-
-let display = document.querySelector("#display");
-display.textContent = "0";
 
 const sum = (a, b) => a + b;
 const subtract = (a, b) => a - b;
@@ -29,6 +28,11 @@ const operate = document.createElement("button");
 operate.textContent = "=";
 operate.classList.add("operator");
 operators.appendChild(operate);
+
+let clear = document.createElement('button');
+numPad.appendChild(clear);
+clear.classList.add('number');
+clear.textContent = "A/C";
 
 operate.addEventListener("click", function () {
   secondNum = Number(secondNumStr);
@@ -70,7 +74,7 @@ for (i = 0; i < 10; i++) {
   let btn = document.createElement("button");
   btn.classList.add("number");
   btn.textContent = i;
-  btn.id = "a" + i
+  btn.id = "a" + i;
   btn.onclick = function (e) {
     firstNumStr += e.target.textContent;
     display.textContent = firstNumStr;
