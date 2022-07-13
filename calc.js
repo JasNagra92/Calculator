@@ -34,6 +34,7 @@ operators.appendChild(operate);
 let clear = document.createElement("button");
 numPad.appendChild(clear);
 clear.classList.add("number");
+clear.id = "clear";
 clear.textContent = "A/C";
 clear.addEventListener("click", reset)
 
