@@ -35,7 +35,8 @@ body{
 }
 .operator{
     width: 100px; 
-    flex-grow:1
+    flex-grow:1;
+    font-size: 20px;
 }
 #operators{
     width:100px;
@@ -57,6 +58,15 @@ body{
     flex-grow:1;
     width: 150px; 
 }
+#clear, .equal{
+    font-weight: bold;
+}
 #clear{
-    width: 150px
+    width: 150px;
+    background-color: orange;
+    font-size:15px;
+}
+.equal{
+    background-color: lightgreen;
+    
 }

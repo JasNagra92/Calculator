@@ -28,6 +28,7 @@ let operators = document.getElementById("operators");
 let numPad = document.getElementById("numberpad");
 const operate = document.createElement("button");
 operate.textContent = "=";
+operate.classList.add("equal");
 operate.classList.add("operator");
 operators.appendChild(operate);
 
