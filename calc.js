@@ -43,7 +43,11 @@ for (i = 0; i < 10; i++) {
   btn.textContent = i;
   btn.id = "a" + i;
   btn.addEventListener("click", function (e) {
-    if (test == "1str") {
+    if (operator == "="){
+      reset();
+      firstNumStr += e.target.textContent;
+      display.textContent = firstNumStr;
+    } else if (test == "1str") {
       firstNumStr += e.target.textContent;
       display.textContent = firstNumStr;
     } else if (test == "2str") {
